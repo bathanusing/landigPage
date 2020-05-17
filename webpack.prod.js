@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 const Dotenv = require('dotenv-webpack');
 var webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'production',
   
@@ -26,6 +27,9 @@ module.exports = {
     extensions: ['*', '.js']
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename:'bundle.css'
+    }),
 	new webpack.ProvidePlugin({
 		 $: 'jquery',
 		 jQuery: 'jquery'

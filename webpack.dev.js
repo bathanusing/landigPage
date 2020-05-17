@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 const Dotenv = require('dotenv-webpack');
 var webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   mode: 'development',
 	
@@ -14,11 +15,7 @@ module.exports = {
     rules: [
       {
         test: /\.css$/i,
-        use: [
-          // The `injectType`  option can be avoided because it is default behaviour
-          { loader: 'style-loader', options: { injectType: 'styleTag' } },
-          'css-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
     ],
   },
@@ -26,6 +23,9 @@ module.exports = {
     extensions: ['*', '.js']
   },
   plugins: [
+   new MiniCssExtractPlugin({
+     filename:'bundle.css'
+   }),
 	 new webpack.ProvidePlugin({
 		 $: 'jquery',
 		 jQuery: 'jquery'

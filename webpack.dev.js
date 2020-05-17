@@ -2,7 +2,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 const Dotenv = require('dotenv-webpack');
-
+var webpack = require('webpack');
 module.exports = {
   mode: 'development',
 	
@@ -10,11 +10,26 @@ module.exports = {
   // 1
   entry: './src/index.js',
   // 2
-
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          // The `injectType`  option can be avoided because it is default behaviour
+          { loader: 'style-loader', options: { injectType: 'styleTag' } },
+          'css-loader',
+        ],
+      },
+    ],
+  },
   resolve: {
     extensions: ['*', '.js']
   },
   plugins: [
+	 new webpack.ProvidePlugin({
+		 $: 'jquery',
+		 jQuery: 'jquery'
+	 }),
 	 new Dotenv({
       path: './.env.development',
      }),

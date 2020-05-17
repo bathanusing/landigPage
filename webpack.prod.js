@@ -1,5 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { DefinePlugin } = require('webpack');
+const Dotenv = require('dotenv-webpack');
 
 module.exports = {
   mode: 'production',
@@ -13,9 +15,18 @@ module.exports = {
     extensions: ['*', '.js']
   },
   plugins: [
+  
+	 new Dotenv({
+      path: './.env.production',
+     }),
+	 new DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production'),
+      }
+     }),
 	 new CleanWebpackPlugin(),
      new HtmlWebpackPlugin({
-      title: 'Hello Webpack bundled JavaScript Project',
+      title: 'Mascarillas Ventas Peru',
       template: './src/index.html'
     })
   ],

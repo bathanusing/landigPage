@@ -1,59 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><%= htmlWebpackPlugin.options.title %></title>
+  <title>Mascarillas Peru</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <style>
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-    }
-
-    .carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      min-height: 200px;
-    }
-
-    /* Hide the carousel text when the screen is less than 600 pixels wide */
-    @media (max-width: 600px) {
-      .carousel-caption {
-        display: none; 
-      }
-    }
-  </style>
 </head>
 <body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Logo</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<div class="container">
+<div id="header">
+  <a href="http://aquabio.pe/" class="navbar-brand">
+    <img src="./img/logo.jpg" class="img-responsive" alt="Aquabio">
+  </a>
+</div>
+<div class="container" id="pageLoader">
 <div class="row">
   <div class="col-sm-8">
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -107,14 +68,15 @@
 </div>
 <hr>
 </div>
-
 <div class="container text-center">    
   <h3>What We Do</h3>
   <br>
   <div class="row">
-    <div class="col-sm-3">
+    <div class="col-sm-3" id="product">
+      <a href="#" id="link1">
       <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
       <p>Current Project</p>
+      </a>
     </div>
     <div class="col-sm-3"> 
       <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
@@ -170,7 +132,16 @@
     </div> 
   </div>
 </div><br>
-
+<div style="position: fixed; z-index: 99999999; bottom: 12px; float: right; right: 10px;">
+  <p style="text-align: center; color: #ff1207;" class="d-none d-xl-block d-lg-block d-md-block">
+  <span style="font-weight: 600;">Consultas por WhatsApp</span><br>
+  </p>
+  <a href="https://api.whatsapp.com/send?phone=51931718406&amp;text=Quiero%20m%C3%A1s%20informaci%C3%B3n" target="_blank">
+    <div align="center">
+      <img src="./img/whatsapp.jpg" style="height: 50px;" class="img-responsive">
+    </div>
+  </a>
+</div>
 <footer class="container-fluid text-center">
   <p>Footer Text</p>
 </footer>
